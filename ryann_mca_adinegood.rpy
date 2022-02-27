@@ -1,18 +1,18 @@
 
 init python:
-    mca_adinegoodens = 0
+    mca_adinegoodends = 0
 
 
 label ryann_mca_adine_good_ending:
 
 if renpy.has_label("cm_freefall1"):
-    $ mca_adinegoodens += 1
+    $ mca_adinegoodends += 1
 
 if renpy.has_label("adine_romance_end"):
-    $ mca_adinegoodens += 1
+    $ mca_adinegoodends += 1
 
 if renpy.has_label("adine_shopping"):
-    $ mca_adinegoodens += 1
+    $ mca_adinegoodends += 1
 
 
 if mca_adinegoodens > 1:
