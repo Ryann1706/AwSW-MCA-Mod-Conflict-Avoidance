@@ -20,3 +20,6 @@ class AWSWMod(Mod):
     ml.find_label("adinegoodending") \
         .search_say("I don't know.", depth=400) \
         .hook_to("ryann_mca_adine_good_ending")
+        .search_scene("black", depth=400) \
+        .link_from("ryann_mca_adine_return")
+        
