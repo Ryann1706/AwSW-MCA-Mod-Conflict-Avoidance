@@ -23,3 +23,11 @@ class AWSWMod(Mod):
         .search_scene("black", depth=400) \
         .link_from("ryann_mca_adine_return")
         
+
+    ml.find_label("annagoodending") \
+        .search_say("Both of us were seemingly unharmed, and by the time Reza was reloading his gun, Anna was already up again and running towards him.") \
+        .hook_call_to("ryann_mca_anna_good_ending_check")
+    
+    ml.find_label("annagoodending") \
+        .search_say("But at least I'm not alone.", depth=250) \
+        .hook_call_to("ryann_mca_anna_good_ending", condition="ryann_mca_annagoodends == True") \
