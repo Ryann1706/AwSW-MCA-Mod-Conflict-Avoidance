@@ -83,45 +83,6 @@ if annastatus == "good" and annascenesfinished == 4 and adinescenesfinished == 3
             jump wyv_betterannaending
 
 else:
-    return
-
-#==================================================================================================================================
-
-# Anna good ending:
-# w/ 4 dates and impressed, and 3 Adine dates and impressed, Not So Tragic Hero, and Adine and Anna beter ending
-
-# I'm removing the requirement for Adine to be impressed for NSTH, because it's much more convenient to just be able to skip the 3 dates
-
-init python:
-    ryann_mca_annagoodends = False
-
-label ryann_mca_anna_good_ending_check:
-
-if renpy.has_label("eck_annashappyend") and renpy.has_label("wyv_betterannaending"):
-    $ ryann_mca_annagoodends = True
-
-return
-
-
-label ryann_mca_anna_good_ending:
-
-if annastatus == "good" and annascenesfinished == 4 and adinescenesfinished == 3 and adinedead == False:
-    scene black with dissolveslow
-    $ renpy.pause (3.0)
-    s "Multiple Anna good ending mods detected. Jump to which one?"
-    menu:
-        "Not-so-Tragic Hero":
-            s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
-            $ renpy.pause (3.0)
-            $ adinestatus = "good"
-            jump eck_common_anna
-
-        "Anna and Adine ending":
-            s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
-            $ renpy.pause (3.0)
-            jump wyv_betterannaending
-
-else:
     jump ryann_mca_anna_return
 
 
