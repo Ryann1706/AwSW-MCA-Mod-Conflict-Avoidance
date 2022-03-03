@@ -30,7 +30,9 @@ class AWSWMod(Mod):
     
     ml.find_label("annagoodending") \
         .search_say("But at least I'm not alone.", depth=250) \
-        .hook_call_to("ryann_mca_anna_good_ending", condition="ryann_mca_annagoodends == True") \
+        .hook_to("ryann_mca_anna_good_ending", condition="ryann_mca_annagoodends == True") \
+        .search_say("A few days later, she passed away quietly in her sleep.") \
+        .link_from("ryann_mca_anna_return")
 
     
     ml.find_label("a4romance") \
