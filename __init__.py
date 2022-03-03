@@ -45,7 +45,8 @@ class AWSWMod(Mod):
         .search_say("Alright, alright. So fussy.") \
         .link_from("ryann_mca_anna4_return")
 
-    ml.find_label("a4romanceL") \
-        .search_python("annascenesfinished = 4") \
-        .hook_to("ryann_mca_anna4_lewdannafix")
+    ml.find_label("a4romance") \
+        .search_menu("If you say so.").branch() \
+        .search_python("mp.annaromance = True") \
+        .link_from("ryann_mca_anna4_lewdannamerge")
     
