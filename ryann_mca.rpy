@@ -107,7 +107,7 @@ if renpy.has_label("bangok_anon_anna4_start") and renpy.has_label("a4romanceL"):
         "Lewd Anna scene":
             s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
             $ renpy.pause(1.0)
-            jump a4romanceL
+            jump ryann_mca_anna4_lewdannamerge
 
         "Skip to the end.":
             s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
@@ -118,7 +118,6 @@ if renpy.has_label("bangok_anon_anna4_start") and renpy.has_label("a4romanceL"):
             $ annastatus = "good"
             $ annascenesfinished = 4
             stop music fadeout 2.0
-            label ryann_mca_anna4_lewdanna_merge:
             $ renpy.pause (0.5)
             if chapter4unplayed == False:
                 jump chapter4chars
@@ -129,11 +128,9 @@ if renpy.has_label("bangok_anon_anna4_start") and renpy.has_label("a4romanceL"):
             else:
                 jump chapter1chars
 
+elif renpy.has_label("bangok_anon_anna4_start"):
+    An face "Alright, alright. So fussy."
+    jump bangok_anon_anna4_skipmenu
+
 else:
     jump ryann_mca_anna4_return
-
-label ryann_mca_anna4_lewdannafix:
-    stop sound fadeout 0.5
-    stop music fadeout 2.0
-    jump ryann_mca_anna4_lewdanna_merge
-
