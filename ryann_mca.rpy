@@ -17,7 +17,7 @@ if renpy.has_label("adine_shopping"):
     $ mca_adinegoodends += 1
 
 
-if mca_adinegoodens > 1:
+if mca_adinegoodends > 1:
     stop music fadeout 2.0
     scene black with dissolveslow
     $ renpy.pause (3.0)
