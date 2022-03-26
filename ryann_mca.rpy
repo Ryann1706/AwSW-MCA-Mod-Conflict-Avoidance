@@ -43,7 +43,7 @@ if mca_adinegoodends > 1:
             jump adine_shopping
 
 else:
-    jump ryann_mca_adine_return
+    jump ryann_mca_adine_good_ending_return
     
 
 #==================================================================================================================================
@@ -53,37 +53,40 @@ else:
 
 # I'm removing the requirement for Adine to be impressed for NSTH, because it's much more convenient to just be able to skip the 3 dates
 
-init python:
-    ryann_mca_annagoodends = False
-
-label ryann_mca_anna_good_ending_check:
-
-if renpy.has_label("eck_annashappyend") and renpy.has_label("wyv_betterannaending"):
-    $ ryann_mca_annagoodends = True
-
-return
-
 
 label ryann_mca_anna_good_ending:
 
-if annastatus == "good" and annascenesfinished == 4 and adinescenesfinished == 3 and adinedead == False:
-    scene black with dissolveslow
-    $ renpy.pause (3.0)
-    s "Multiple Anna good ending mods detected. Jump to which one?"
-    menu:
-        "Not-so-Tragic Hero":
-            s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
-            $ renpy.pause (3.0)
-            $ adinestatus = "good"
-            jump eck_common_anna
+if renpy.has_label("eck_annashappyend") and renpy.has_label("wyv_betterannaending"):
+    if annastatus == "good" and annascenesfinished == 4 and adinescenesfinished == 3 and adinedead == False:
+        scene black with dissolveslow
+        $ renpy.pause (3.0)
+        s "Multiple Anna good ending mods detected. Jump to which one?"
+        menu:
+            "Not-so-Tragic Hero":
+                s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
+                $ renpy.pause (3.0)
+                $ adinestatus = "good"
+                jump eck_common_anna
 
-        "Anna and Adine ending":
-            s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
-            $ renpy.pause (3.0)
-            jump wyv_betterannaending
+            "Anna and Adine ending":
+                s "As you wish.{cps=2}..{/cps}{w=1.0}{nw}"
+                $ renpy.pause (3.0)
+                jump wyv_betterannaending
+
+    else:
+        pass
+        
+elif renpy.has_label("eck_annashappyend"):
+    $ adinestatus = "good"
+    jump eck_common_anna
+
+elif renpy.has_label("wyv_betterannaending"):
+    jump wyv_betterannaending
 
 else:
-    jump ryann_mca_anna_return
+    pass
+
+jump ryann_mca_anna_good_ending_return
 
 
 #==================================================================================================================================
@@ -133,4 +136,4 @@ elif renpy.has_label("bangok_anon_anna4_start"):
     jump bangok_anon_anna4_skipmenu
 
 else:
-    jump ryann_mca_anna4_return
+    ryann_mca_anna4_romance_return
