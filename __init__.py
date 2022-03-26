@@ -19,20 +19,12 @@ class AWSWMod(Mod):
 
     ml.find_label("adinegoodending") \
         .search_say("I don't know.", depth=400) \
-        .hook_to("ryann_mca_adine_good_ending") \
-        .search_scene("black", depth=400) \
-        .link_from("ryann_mca_adine_return")
-        
+        .hook_to("ryann_mca_adine_good_ending") \    
 
-    ml.find_label("annagoodending") \
-        .search_say("Both of us were seemingly unharmed, and by the time Reza was reloading his gun, Anna was already up again and running towards him.") \
-        .hook_call_to("ryann_mca_anna_good_ending_check")
     
     ml.find_label("annagoodending") \
         .search_say("But at least I'm not alone.", depth=250) \
-        .hook_to("ryann_mca_anna_good_ending", condition="ryann_mca_annagoodends == True") \
-        .search_say("A few days later, she passed away quietly in her sleep.") \
-        .link_from("ryann_mca_anna_return")
+        .hook_to("ryann_mca_anna_good_ending") \
 
     
     ml.find_label("a4romance") \
@@ -40,13 +32,4 @@ class AWSWMod(Mod):
         .search_say("Not like that! You'll ruin them. I'll do it.") \
         .hook_to("ryann_mca_anna4_romance", condition="persistent.nsfwtoggle == True") 
 
-    ml.find_label("a4romance") \
-        .search_menu("If you say so.").branch() \
-        .search_say("Alright, alright. So fussy.") \
-        .link_from("ryann_mca_anna4_return")
-
-    ml.find_label("a4romance") \
-        .search_menu("If you say so.").branch() \
-        .search_python("mp.annaromance = True") \
-        .link_from("ryann_mca_anna4_lewdannamerge")
     
