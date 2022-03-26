@@ -136,4 +136,4 @@ elif renpy.has_label("bangok_anon_anna4_start"):
     jump bangok_anon_anna4_skipmenu
 
 else:
-    ryann_mca_anna4_romance_return
+    jump ryann_mca_anna4_romance_return
