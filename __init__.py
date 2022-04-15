@@ -21,7 +21,7 @@ class AWSWMod(Mod):
             .hook_to("ryann_mca_anna_good_ending") 
 
     
-         ml.find_label("a4romance") \
+        ml.find_label("a4romance") \
             .search_menu("If you say so.").branch() \
             .search_say("Not like that! You'll ruin them. I'll do it.") \
             .hook_to("ryann_mca_anna4_romance", condition="persistent.nsfwtoggle == True") 
