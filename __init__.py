@@ -11,25 +11,23 @@ class AWSWMod(Mod):
     dependencies = ["MagmaLink"]
 
     def mod_load(self):
-        pass
+        ml.find_label("adinegoodending") \
+            .search_say("I don't know.", depth=400) \
+            .hook_to("ryann_mca_adine_good_ending") 
+
+    
+        ml.find_label("annagoodending") \
+            .search_say("But at least I'm not alone.", depth=250) \
+            .hook_to("ryann_mca_anna_good_ending") 
+
+    
+         ml.find_label("a4romance") \
+            .search_menu("If you say so.").branch() \
+            .search_say("Not like that! You'll ruin them. I'll do it.") \
+            .hook_to("ryann_mca_anna4_romance", condition="persistent.nsfwtoggle == True") 
+
 
     def mod_complete(self):
         pass
-
-
-    ml.find_label("adinegoodending") \
-        .search_say("I don't know.", depth=400) \
-        .hook_to("ryann_mca_adine_good_ending") 
-
-    
-    ml.find_label("annagoodending") \
-        .search_say("But at least I'm not alone.", depth=250) \
-        .hook_to("ryann_mca_anna_good_ending") 
-
-    
-    ml.find_label("a4romance") \
-        .search_menu("If you say so.").branch() \
-        .search_say("Not like that! You'll ruin them. I'll do it.") \
-        .hook_to("ryann_mca_anna4_romance", condition="persistent.nsfwtoggle == True") 
 
     
